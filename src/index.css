@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Ensure that body and other elements don't change based on color scheme */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #fff !important; 
+  }
+}
+
+
+
+html{
+  scroll-behavior:smooth
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+
+.custom-top-shadow {
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@layer utilities {
+  .card-wrapper {
+    @apply relative bg-gradient-to-b from-slate-700 to-slate-800 rounded-2xl overflow-hidden;
+  }
+
+  .card-wrapper::before {
+    background: conic-gradient(
+      rgba(244, 114, 182, 0.4) 0deg,
+      rgba(192, 132, 252, 0.4) 0deg,
+      transparent 80deg
+    );
+    @apply absolute h-[150%] w-[150%] left-[-25%] top-[-25%] content-[''] animate-border-spin;
+  }
+
+  .card-content {
+    @apply absolute w-[calc(100%-2px)] h-[calc(100%-2px)] top-[1px] left-[1px]
+    bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl;
+  }
+}
+
+:root {
+  --radial-gradient-background: 143, 209, 79; /* Converted #8FD14F to RGB */
+  --solid-color-background: 143, 209, 79;     /* Same for solid background */
+  --overlay-color: 0, 0, 0;                   /* Black for overlay elements */
+}
+
+.radial-gradient {
+  background: radial-gradient(
+      circle at 50% 0%,
+      rgba(var(--radial-gradient-background), 0.05) 0%,
+      transparent 60%
+    )
+    rgba(var(--solid-color-background), 1);
+}
+
+.linear-mask {
+  mask-image: linear-gradient(
+    -75deg,
+    black calc(var(--x) + 20%),          /* Text and borders are black */
+    transparent calc(var(--x) + 30%),
+    black calc(var(--x) + 100%)
+  );
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    black calc(var(--x) + 20%),
+    transparent calc(var(--x) + 30%),
+    black calc(var(--x) + 100%)
+  );
+}
+
+.linear-overlay {
+  background-image: linear-gradient(
+    -75deg,
+    rgba(var(--overlay-color), 0.1) calc(var(--x) + 20%),
+    rgba(var(--overlay-color), 0.5) calc(var(--x) + 25%),
+    rgba(var(--overlay-color), 0.1) calc(var(--x) + 100%)
+  );
+  mask:
+    linear-gradient(black, black) content-box,
+    linear-gradient(black, black);
+  -webkit-mask:
+    linear-gradient(black, black) content-box,
+    linear-gradient(black, black);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+/* Additional styling for text and border color */
+body, .text-element {   /* Replace .text-element with your text class */
+  color: black;
+}
+
+.border-element {       /* Replace .border-element with your border class */
+  border-color: black;
+}
+
+
+    /* icon anim  // */
+
+@keyframes bounceVertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px);  /* Adjust the height as needed */
+  }
+}
+
+.animate-bounce-custom {
+  animation: bounceVertical 3s ease-in-out infinite; /* Adjust duration */
+}
+
+

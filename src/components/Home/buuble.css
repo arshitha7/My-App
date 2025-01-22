@@ -1,0 +1,54 @@
+/* Main bubble effect */
+@keyframes water-blast {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.blast {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 209, 79, 0.8) 20%, transparent 80%);
+  animation: water-blast 0.8s ease-out forwards;
+  position: relative;
+  box-shadow: 0 0 20px rgba(143, 209, 79, 0.6);
+}
+
+/* Smaller droplets */
+.blast::before,
+.blast::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(143, 209, 79, 0.7);
+  border-radius: 50%;
+  animation: water-drop 0.8s ease-out forwards;
+}
+
+.blast::before {
+  top: -30px;
+  left: 10px;
+}
+
+.blast::after {
+  bottom: -30px;
+  right: 10px;
+}
+
+@keyframes water-drop {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translateY(-20px);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,36 @@
+/* Custom styles for slick dots */
+.slick-dots {
+  position: relative; /* Ensure positioning can be adjusted */
+  top: 20px; /* Move the dots 10px from the top */
+}
+
+.slick-dots li button:before {
+  font-size: 14px; /* Size of the dot */
+  color: gray; /* Default dot color */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #a0d201; /* Active dot color */
+}
+
+.slick-dots li {
+  margin: 0 5px; /* Adjust spacing between dots */
+}
+
+.slick-dots li button {
+  width: 15px; /* Custom width for dots */
+  height: 15px; /* Custom height for dots */
+}
+
+/* Optional: Add hover effect */
+.slick-dots li:hover button:before {
+  color: #a0d201; /* Hover color */
+}
+/* .slick-slide {
+  margin-right: 16px; 
+}
+
+.slick-track {
+  display: flex;
+  gap: 16px; 
+} */

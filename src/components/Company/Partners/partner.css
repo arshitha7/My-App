@@ -1,0 +1,106 @@
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:30px;
+  padding: 20px;
+  justify-items:center;
+  
+}
+
+/* Card Container */
+.container {
+  max-width: 340px;
+  min-height: 420px;
+  border-radius: 20px;
+  position: relative;
+  transition: 1.5s ease-in-out;
+  transform-style: preserve-3d;
+
+}
+
+/* Flip Effect on Hover */
+.container:hover {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back Side */
+.side {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 30px;
+  color: #fff;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.side.front {
+  z-index: 2;
+  background-size: cover;
+  background-position: center;
+}
+
+.side.back {
+  background-color: #8ab304;
+  transform: rotateY(180deg);
+}
+
+/* Content Styling */
+.content {
+  transform: translateZ(70px) scale(0.8);
+  line-height: 1.5em;
+ 
+}
+
+.content h1 {
+  position: relative;
+  font-size: 24px;
+}
+
+.content p {
+  margin-top: 35px;
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+.content h1:before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  height: 3px;
+  background-color: #a0d201;
+  width: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container {
+    min-width: 250px;
+    min-height: 420px ;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    min-width: 200px;
+    min-height: 420px;
+  }
+}
